@@ -1,8 +1,8 @@
 # Mysql版本8.24
 
 # 创建数据库
-create database lejingling;
-use lejingling;
+create database ylan;
+use ylan;
 
 # 创建表结构
 CREATE TABLE `t_user`

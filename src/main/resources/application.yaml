@@ -3,11 +3,11 @@ server:
 
 spring:
   application:
-    name: ?????
+    name: YlanProject
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://127.0.0.1:3306/lejingling?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/ylan?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       connection-test-query: select 1
