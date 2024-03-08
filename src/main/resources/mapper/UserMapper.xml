@@ -3,4 +3,12 @@
 <mapper namespace="org.ylan.mapper.UserMapper">
 
 
+    <select id="selectUserByPhoneNumberAndPassword" resultType="UserEntity">
+       select u.id, u.phone_number, u.password
+       from t_user as u
+       where
+           phone_number = #{param.phoneNumber}
+         and password = #{param.password};
+    </select>
+
 </mapper>

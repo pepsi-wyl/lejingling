@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.ibatis.type.Alias;
+import org.springframework.scheduling.annotation.Async;
 
 /**
  * @author ylan
@@ -14,6 +16,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+
+@Alias("UserEntity")
 @TableName("t_user")
 
 public class UserEntity {

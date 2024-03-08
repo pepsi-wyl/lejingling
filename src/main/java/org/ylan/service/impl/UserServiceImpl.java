@@ -38,6 +38,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
      */
     private final StringRedisTemplate stringRedisTemplate;
 
+    /**
+     * UserMapper 数据库层接口
+     */
+    private final UserMapper userMapper;
+
     @Override
     public UserLoginRespDTO login(UserLoginReqDTO requestParam) {
 
@@ -53,10 +58,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         }
 
         // 查询数据库判断用户是否可以登陆
-        LambdaQueryWrapper<UserEntity> queryWrapper = Wrappers.lambdaQuery(UserEntity.class)
-                .eq(UserEntity::getPhoneNumber, requestParam.getPhoneNumber())
-                .eq(UserEntity::getPassword, requestParam.getPassword());
-        UserEntity user = baseMapper.selectOne(queryWrapper);
+//        LambdaQueryWrapper<UserEntity> queryWrapper = Wrappers.lambdaQuery(UserEntity.class)
+//                .eq(UserEntity::getPhoneNumber, requestParam.getPhoneNumber())
+//                .eq(UserEntity::getPassword, requestParam.getPassword());
+//        UserEntity user = baseMapper.selectOne(queryWrapper);
+        UserEntity user = userMapper.selectUserByPhoneNumberAndPassword(requestParam);
         if (Objects.isNull(user)){
             // 用户登录失败,用户名或密码错误
             throw new ClientException(USER_LOGIN_ERROR);
